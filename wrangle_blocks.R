@@ -25,6 +25,7 @@ num_pages <- get_n_pages(url)
 for (i in seq_len(num_pages)) {
 
   print(i)
+  
   table_text <- extract_tables(url, pages = rep(1, length(coords)), 
                                area = coords, guess = F,
                                method = 'lattice')
