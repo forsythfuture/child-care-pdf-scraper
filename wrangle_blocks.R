@@ -16,9 +16,13 @@ coords <- list(c(106.92, 5.18, 546.07, 797.49), # table with data
                c(45.02, 355.76, 59.04, 477.30), # type
                c(579.94, 1.66, 597.46, 40.22)) # test for summary
 
+# initialize dataframe to store data
 single_month <- data.frame()
 
-for (i in seq_len(10)) {
+# get the number of pages in the PDF, so we know how many pages to iterate through
+num_pages <- get_n_pages(url)
+
+for (i in seq_len(num_pages)) {
 
   print(i)
   table_text <- extract_tables(url, pages = rep(1, length(coords)), 
@@ -33,6 +37,4 @@ for (i in seq_len(10)) {
   
 }
 
-
-
-df <- select(df, id, county, name, type, star, everything())
+write_csv(single_month, 'nc_january_19.csv')

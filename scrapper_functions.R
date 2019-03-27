@@ -20,7 +20,7 @@ ff_create_df <- function(table_text) {
   # this means, however, that we will only merge for the pages where the columns did not merge
   # if the extracted page has 17 columns then it did not merge,
   # so only perform merge if page had 17 columns
-  if (ncol == 17) {
+  if (ncol(df) == 17) {
     
     df <- df %>%
       unite(col = 'cat_op', V15, V16, remove = T, sep = " ")
