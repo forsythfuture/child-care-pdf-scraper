@@ -36,6 +36,13 @@ for (i in seq_len(num_pages)) {
   single_month <- ff_create_df(table_text) %>%
     bind_rows(single_month, .)
   
+  # save object every 10 pages (if page number divided by 10 has no remainder)
+  if (i %% 10 == 0) {
+    
+    write_rds(single_month, 'nc_january_19.rds')
+    
+  }
+  
 }
 
 # add year and month
