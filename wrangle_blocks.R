@@ -38,4 +38,9 @@ for (i in seq_len(num_pages)) {
   
 }
 
-write_csv(single_month, 'nc_january_19.csv')
+# add year and month
+single_month <- single_month %>%
+  mutate(month = 'January',
+         year = 2019)
+
+write_rds(single_month, 'nc_january_19.rds')
