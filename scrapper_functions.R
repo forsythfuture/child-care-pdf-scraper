@@ -10,9 +10,40 @@ ff_create_df <- function(table_text) {
   
   # table_text: the output from the extract_tables calls
   
+  # the table with data is situated differently vertically on different pages
+  # some pages include the headers because they are further down vertically;
+  # The header rows start with 'ID/' or 'Abbrev'
+  # remove any row that has one of these words in the first column
+  
+  # identify rows that contain 'ID/' or 'Abbrev'
+  remove_rows <- which(table_text[[1]][,1] %in% c("ID/", "Abbrev"))
+  
+  # remove these rows only if there are rows to remove
+  if (length(remove_rows > 0)) {
+    table_text[[1]] <- table_text[[1]][-remove_rows,]
+  }
+  
+  # create data table ------------
+  
   # convert the extract that contains the bulk of the data into a dataframe
   # this extract contains all columns and rows of the pdf
   df <- as.data.frame(table_text[[1]], stringsAsFactors = F)
+  
+  # some columns extract with nothing in them; all values are ""
+  # delete these columns
+
+  # # create empty vector that will store column numbers of empty columns
+  # vec <- vector()
+  # 
+  # # iterate through each column, and if it is empty store the number in the vector
+  # for (col_num in seq(1, ncol(df))) {
+  #   
+  #   vec <- if (all(df[[col_num]] == "")) c(vec, col_num) else vec
+  # 
+  # }
+  # 
+  # # remvoe empty columns
+  # df <- df[-vec]
   
   # for some of the pages, the 'Category Operation' and 'Operation Site' columns
   # merge into one column when extracted
@@ -51,7 +82,7 @@ ff_create_df <- function(table_text) {
   df$id_abb[seq(2, nrow(df), 3)] <- NA
   
   # except for the number of students and shitf columns, all columns should only have text
-  # in the first row for teh school; text in other rows will mess up the process of filling NA
+  # in the first row for the school; text in other rows will mess up the process of filling NA
   # values with the previous value
   # therefore, ensure all non-number of kids rows only have text in first row of school;
   # in other words, do not have text in second and third rows
@@ -67,7 +98,23 @@ ff_create_df <- function(table_text) {
   df[second_row, na_cols] <- NA
   df[third_row, na_cols] <- NA
   
-  # clean up data frame
+  # identify type and county ----------
+  
+  # identify whether the type is home or center
+  # do this by first converting column header to a single string
+  # and then extracting either 'Homes' or 'Center' from string, whichever occurs
+  type <- str_c(table_text[[2]], collapse = ' ') %>%
+    str_extract(., 'Home|Center')
+  
+  # extract county
+  # convert the column that contains the county information to a string
+  county <- str_c(table_text[[3]], collapse = " ") %>%
+    # use a regular expression to exgract teh county from the string
+    str_match(., 'County:(?: [0-9] | )([A-Z][a-z]+)') %>%
+    .[2]
+  
+  # clean up data frame -----------
+  
   df <- df %>%
     # rename id column since it now only contains the ID
     rename(id = id_abb) %>%
@@ -79,17 +126,17 @@ ff_create_df <- function(table_text) {
     mutate(employees = str_extract(.$cat_op, '^[0-9]* '),
            # remove number from category column
            cat_op = str_replace(.$cat_op, '^[0-9]* ', "")) %>%
-    # convert numeric columns to integers
-    mutate_at(vars(matches('num|children'), 'id', 'ind_month', 'shift', 'employees'), 
-              as.integer) %>%
     # add county and type, which are located in different extract areas
     # county has a leading number, so remove it
-    mutate(county = str_extract(table_text[[2]][,1], '[a-zA-Z ]*$'),
-           type = table_text[[3]][,1],
+    mutate(county = county,
+           type = type,
            # convert facility name from upper case to title case
            name = str_to_title(.$name, locale = "en")) %>%
     # trim padded whitespace from all columns
     mutate_all(funs(str_trim(., side = 'both'))) %>%
+    # convert numeric columns to integers
+    mutate_at(vars(matches('num|children'), 'id', 'ind_month', 'shift', 'employees'), 
+              as.integer) %>%
     # reorder columns
     select(id, county, name, type, star, everything())
   

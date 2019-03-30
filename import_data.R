@@ -7,10 +7,6 @@
 library(tidyverse)
 library(tabulizer)
 
-#url <- "https://ncchildcare.ncdhhs.gov/Portals/0/documents/pdf/S/statistical_detail_report_january_2019.pdf"
-
-#locate_areas(url, 1)
-
 source('scrapper_functions.R')
 
 # enter year that we want to extract data for
@@ -27,15 +23,13 @@ months <- 'january'
 # the string below represents the base URL, with month and year added at the end
 url_base <- "https://ncchildcare.ncdhhs.gov/Portals/0/documents/pdf/S/statistical_detail_report_"
 
-# coordinates for new format
-coords <- list(c(106.92, 5.18, 546.07, 797.49), # table with data
-               c(42.69, 71.78, 57.87, 303.17), # county
-               c(45.02, 355.76, 59.04, 477.30), # type
-               # test for whether it is a detail page we want to extract
-               # this block will equal 'Child Care Analysis Detail' if it is
-               c(31.67, 290.82, 46.28, 532.50)) 
-               #c(579.94, 1.66, 597.46, 40.22), # test for summary 1
-               #c(564.73, 2.36, 580.32,34.52)) # test for summary 2
+# coordinates to extract
+coords <- list(c(103.399115, 0, 550.213274, 796.402597), # data table
+               c(0, 245.45809,  64.58496, 604.02361), # header
+               c(0, 0, 74.514159, 209.330579)) # county
+
+# initialize empty vector that will hold errors
+errors <- vector()
 
 # iterate through each month, which is a different PDF file
 for (month in months) {
@@ -43,10 +37,15 @@ for (month in months) {
   # create url to this month's PDF file
   url <- paste0(url_base, month, '_', year, '.pdf')
   
+  # create a temporary file and download the monthly pdf into the temp file
+  # this will save the file into memory, and will not write it on to the hard drive
+  temp <- tempfile()
+  download.file(url,temp)
+  
   # create file name to save output
   # save to 'data' folder
   # save as RDS file because this file type has faster I/O operations
-  output_file <- paste0('data/nc_', month, '_', year, '.rds')
+  output_file <- paste0('data/nc_', month, '_', year, '.csv')
   
   # initialize dataframe to store data
   single_month <- data.frame()
@@ -61,15 +60,29 @@ for (month in months) {
     print(month)
     print(i)
     
-    table_text <- extract_tables(url, pages = rep(i, length(coords)), 
+    # extract the text blocks from the PDF file, whiich is stored in memory as a temp file
+    table_text <- extract_tables(temp, pages = rep(i, length(coords)), 
                                  area = coords, guess = F,
                                  method = 'lattice')
     
-    # skip pages that don't have the details per facility
-    if (table_text[[4]][,1] != "Child Care Analysis Detail") next
+    # identify whether page has detailed facility information by searching for
+    # whether the header information includes the phrase "Child Care Analysis Detail"
+    # if this phrase is not included, the page does not contain detailed facility info,
+    # so, skip this page
+    if (!(any(str_detect(table_text[[2]], 'Child Care Analysis Detail')))) next
     
-    single_month <- ff_create_df(table_text) %>%
-      bind_rows(single_month, .)
+    # create dataset from extract
+    # use try so that loop continues if error
+    single_page <- try(ff_create_df(table_text))
+    
+    # if there is an error, save the page number
+    if(inherits(single_page, "try-error")) {
+      errors <- c(errors, paste(i, month, year, sep = ", "))
+      next
+    }
+
+    # bind single page with month    
+    single_month <- bind_rows(single_month, single_page)
     
   }
   
@@ -79,7 +92,10 @@ for (month in months) {
            year = year)
   
   # write out data to 'data' folder
-  write_rds(single_month, output_file)
+  write_csv(single_month, output_file)
+  
+  # remove temp file
+  unlink(temp)
   
   rm(single_month)
   
