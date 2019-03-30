@@ -29,21 +29,49 @@ ff_create_df <- function(table_text) {
   # this extract contains all columns and rows of the pdf
   df <- as.data.frame(table_text[[1]], stringsAsFactors = F)
   
+  # for some extracts, the 'Ind Month' and 'Shift' columns are merged;
+  # check to see if these two column are merged, and separate if needed
+  
+  # items in 'shift' column have parenthesis around them, so check and see
+  # if there are any parenthesis in the column that should only contain Ind Month,
+  # but might also contain shift and parenthesis
+  if (str_detect(df$V3[1], "[(]")) {
+    
+    df <- df %>%
+      # separate column at parenthesis "("
+      separate(V3, into = c('ind_month', 'shift'), sep = "[(]", remove = T) %>%
+      # add open parenthesis back to column, so there is consistency with other pages
+      mutate(shift = paste0("(", shift))
+    
+  }
+  
   # some columns extract with nothing in them; all values are ""
   # delete these columns
 
-  # # create empty vector that will store column numbers of empty columns
-  # vec <- vector()
-  # 
-  # # iterate through each column, and if it is empty store the number in the vector
-  # for (col_num in seq(1, ncol(df))) {
-  #   
-  #   vec <- if (all(df[[col_num]] == "")) c(vec, col_num) else vec
-  # 
-  # }
-  # 
-  # # remvoe empty columns
-  # df <- df[-vec]
+  # create empty vector that will store column numbers of empty columns
+  vec <- vector()
+
+  # iterate through each column, and if it is empty store the number in the vector
+  for (col_num in seq(1, ncol(df))) {
+   vec <- if (all(df[[col_num]] == "")) c(vec, col_num) else vec
+  }
+  
+  # remove empty columns only if there are columns to remove
+  if (length(vec) > 0) {
+    df <- df[-vec]
+  }
+  
+  # some columns merge the MAX, num employees, and category operations columns;
+  # check to see if these columns are merged, and separate MAX and num employees.
+  # we will separate num employees and category operations later
+  # if the columns are merged,it will take the form number, number, word
+  # so, we will search for this structure and separate if it is detected
+  if (str_detect(df[[1, 14]], "[0-9]+ [0-9]+ [A-Z]")) {
+    
+    df <- df %>%
+      separate(14, into = c('children_max', 'cat'), sep = " ", remove = T, extra = "merge")
+    
+  }
   
   # for some of the pages, the 'Category Operation' and 'Operation Site' columns
   # merge into one column when extracted
@@ -54,7 +82,7 @@ ff_create_df <- function(table_text) {
   if (ncol(df) == 17) {
     
     df <- df %>%
-      unite(col = 'cat_op', V15, V16, remove = T, sep = " ")
+      unite(col = 'cat_op', 15, 16, remove = T, sep = " ")
     
   }
   
@@ -110,7 +138,7 @@ ff_create_df <- function(table_text) {
   # convert the column that contains the county information to a string
   county <- str_c(table_text[[3]], collapse = " ") %>%
     # use a regular expression to exgract teh county from the string
-    str_match(., 'County:(?: [0-9] | )([A-Z][a-z]+)') %>%
+    str_match(., 'County:(?: [0-9]+ | )([A-Z][a-z]+)') %>%
     .[2]
   
   # clean up data frame -----------
