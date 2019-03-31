@@ -49,6 +49,8 @@ remDr$open()
 
 # iterate though each facility ID, and find address
 for (i in seq_len(nrow(facilities))) {
+
+  print(i)
   
   # save the facility ID as an object so it can easily be used later
   facility_id <- facilities$id[i]
@@ -66,30 +68,34 @@ for (i in seq_len(nrow(facilities))) {
   # save the search bar element using its name
   webElem <- remDr$findElement(using = "name", value = "Sel_ID")
   
-  # type the facility ID into the serach bar and push enter
-  # this takes us to the page with the address of the facility whose ID was entered
-  webElem$sendKeysToElement(list(facility_id, key = "enter"))
+  # search for facility in try block so that if no facility is returned,
+  # program does not crash
+  try({
   
-  # extract the address from the page
-  address <- XML::readHTMLTable(remDr$getPageSource()[[1]])[[3]][2,2] %>%
-    as.character() %>%
-    # clean up by removing line breaks
-    str_replace_all("[\n]" , "") %>%
-    # separate street address, city, state, and zip using regular expressions
-    # the existing format is street, city, state, zip, and phone number
-    str_match("^(.+)  (.+), NC ([0-9]+)") %>%
-    # trim whitespace from left and right of all entries
-    str_trim("both")
+    # type the facility ID into the serach bar and push enter
+    # this takes us to the page with the address of the facility whose ID was entered
+    webElem$sendKeysToElement(list(facility_id, key = "enter"))
+    
+    # extract the address from the page
+    address <- XML::readHTMLTable(remDr$getPageSource()[[1]])[[3]][2,2] %>%
+      as.character() %>%
+      # clean up by removing line breaks
+      str_replace_all("[\n]" , "") %>%
+      # separate street address, city, state, and zip using regular expressions
+      # the existing format is street, city, state, zip, and phone number
+      str_match("^(.+)  (.+), NC ([0-9]+)") %>%
+      # trim whitespace from left and right of all entries
+      str_trim("both")
+    
+    # create one line dataframe with the address of one facility
+    one_address <- data.frame(id = facility_id,
+                              street = address[2],
+                              city = address[3],
+                              zip = address[4])
+    
+    # add the data frame with one address to the dataframe with all addresses
+    all_addresses <- bind_rows(all_addresses, one_address)
   
-  # create one line dataframe with the address of one facility
-  one_address <- data.frame(id = facility_id,
-                            street = address[2],
-                            city = address[3],
-                            zip = address[4])
-  
-  # add the data frame with one address to the dataframe with all addresses
-  all_addresses <- bind_rows(all_addresses, one_address)
-  
-  print(all_addresses)
-
+  })
+    
 }
