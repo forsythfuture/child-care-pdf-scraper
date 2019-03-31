@@ -163,7 +163,7 @@ ff_create_df <- function(table_text) {
     # trim padded whitespace from all columns
     mutate_all(funs(str_trim(., side = 'both'))) %>%
     # convert numeric columns to integers
-    mutate_at(vars(matches('num|children'), 'id', 'ind_month', 'shift', 'employees'), 
+    mutate_at(vars(matches('num|children'), 'ind_month', 'shift', 'employees'), 
               as.integer) %>%
     # reorder columns
     select(id, county, name, type, star, everything())

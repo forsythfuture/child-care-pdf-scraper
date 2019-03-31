@@ -92,9 +92,10 @@ for (i in seq_len(nrow(facilities))) {
       str_trim("both")
     
     # create one line dataframe with the address of one facility
+    # convert street and city from all uppercase to title case
     one_address <- data.frame(id = facility_id,
-                              street = address[2],
-                              city = address[3],
+                              street = str_to_title(address[2], locale = "en"),
+                              city = str_to_title(address[3], locale = "en"),
                               zip = address[4])
     
     # add the data frame with one address to the dataframe with all addresses
