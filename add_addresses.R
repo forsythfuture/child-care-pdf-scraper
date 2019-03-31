@@ -3,6 +3,10 @@
 # This script builds a web-scrapper to automatically search for, and add,
 # the addresses of all facilities.
 #
+# The script enters the facility ID into this page:
+#  http://ncchildcaresearch.dhhs.state.nc.us/search.asp
+# and then scrapes the results page for the address.
+#
 # The script uses RSelenium, which is based on the selenium web driver,
 # to enter search terms into a text box. The selenium web server is started
 # through a docker image. Installing docker and running the image is beyond
