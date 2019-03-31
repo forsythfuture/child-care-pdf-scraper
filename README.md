@@ -10,7 +10,7 @@ The script produces a distinct csv file for each month's data, and the data incl
 
 ### Data files
 
-The data files from the scrapped PDFs are [also on github](https://github.com/forsythfuture/child-care-pdf-scraper/tree/master/data). Each file is a different month and can be imported direct into R with the following command:
+The data files from the scrapped PDFs are [also on github](https://github.com/forsythfuture/child-care-pdf-scraper/tree/master/data). Each file is a different month and can be imported directly into R with the following command:
 
 ```r
 library(tidyverse)
