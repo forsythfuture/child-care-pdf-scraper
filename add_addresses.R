@@ -99,3 +99,5 @@ for (i in seq_len(nrow(facilities))) {
   })
     
 }
+
+write_csv(all_addresses, 'data/addresses/forsyth_addresses.csv')
