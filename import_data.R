@@ -10,7 +10,7 @@ library(tabulizer)
 source('scrapper_functions.R')
 
 # enter year that we want to extract data for
-year <- 2019
+year <- 2018
 
 # each PDF file is a different month,
 # so we will iterate through months, extracting files
@@ -43,7 +43,7 @@ for (month in months) {
   # create file name to save output
   # save to 'data' folder
   # save as RDS file because this file type has faster I/O operations
-  output_file <- paste0('data/nc_', month, '_', year, '.csv')
+  output_file <- paste0('data/data_', year, '/nc_', month, '_', year, '.csv')
   
   # initialize dataframe to store data
   single_month <- data.frame()

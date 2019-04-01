@@ -18,3 +18,9 @@ library(tidyverse)
 # import Janaury 2019 data
 read_csv('https://raw.githubusercontent.com/forsythfuture/child-care-pdf-scraper/master/data/nc_january_2019.csv')
 ```
+
+### Addresses
+
+Facility addresses are not contained in the PDF files, but the NC DHHS maintains a log of addresses at this site: http://ncchildcaresearch.dhhs.state.nc.us/search.asp.
+
+The repo contains a web scraper in the `add_address.R` file that pulls the address for facilities.

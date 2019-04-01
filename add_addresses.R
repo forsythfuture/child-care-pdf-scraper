@@ -1,11 +1,14 @@
 ######################################################################
 #
 # This script builds a web-scrapper to automatically search for, and add,
-# the addresses of all facilities.
-#
-# The script enters the facility ID into this page:
-#  http://ncchildcaresearch.dhhs.state.nc.us/search.asp
-# and then scrapes the results page for the address.
+# the addresses of all facilities. It performs the operations through the
+# following steps:
+# 
+# Iterate through each facility ID and do the following:
+#   1. navigate to http://ncchildcaresearch.dhhs.state.nc.us/search.asp;
+#   2. enter the facility ID in the top search box;
+#   3. press enter; and
+#   4. scrape the address from the resulting page.
 #
 # The script uses RSelenium, which is based on the selenium web driver,
 # to enter search terms into a text box. The selenium web server is started
@@ -29,7 +32,6 @@ data_url <- str_c(base_url, month, "_", year, ".csv")
 
 # import data
 facilities <- read_csv(data_url) %>%
-  filter(county == 'Forsyth') %>%
   # only keep ID column
   select(id) %>%
   distinct()
@@ -104,4 +106,4 @@ for (i in seq_len(nrow(facilities))) {
     
 }
 
-write_csv(all_addresses, 'data/addresses/forsyth_addresses.csv')
+write_csv(all_addresses, 'data/addresses/nc_child_care_addresses.csv')
