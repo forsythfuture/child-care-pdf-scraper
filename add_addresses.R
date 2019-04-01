@@ -32,8 +32,7 @@ facilities <- read_csv(data_url) %>%
   filter(county == 'Forsyth') %>%
   # only keep ID column
   select(id) %>%
-  distinct() %>%
-  mutate(id = as.character(id))
+  distinct()
 
 # initialize dataframe to contain addresses
 all_addresses <- data.frame()

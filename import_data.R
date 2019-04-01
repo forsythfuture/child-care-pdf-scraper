@@ -10,7 +10,7 @@ library(tabulizer)
 source('scrapper_functions.R')
 
 # enter year that we want to extract data for
-year <- 2018
+year <- 2019
 
 # each PDF file is a different month,
 # so we will iterate through months, extracting files
