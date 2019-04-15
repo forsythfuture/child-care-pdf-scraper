@@ -30,7 +30,7 @@ id <- id_name[[1]][,2] # id
 name <- str_trim(id_name[[1]][,3]) # name: trim whitespace (name will only show first line)
 
 # star
-star <- str_extract_all(text, "(?<=\n)[0-9]-STAR|GS[0-9]+")
+star_name <- str_extract_all(text, "(?<=\n)[0-9]-STAR|GS[0-9]+|SPPROV")
 
 # ind. month and number of employees
 ind_month_emp <- str_match_all(text, "([0-9]{1,2}) +\\([0-9]\\) + [0-9 ]*([0-9]+) +[A-Z]")
