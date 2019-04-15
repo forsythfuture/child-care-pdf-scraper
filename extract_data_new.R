@@ -1,8 +1,8 @@
-########################################################################
+####################################################################################
 #
-# This script contains functions that wrangle each block into a dataframe
+# This script extracts data from the pdf files containing the most recent style
 #
-##########################################################################
+####################################################################################
 
 library(tidyverse)
 library(tabulizer)
