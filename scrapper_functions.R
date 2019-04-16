@@ -186,8 +186,9 @@ ff_extract_old_format <- function(pdf) {
   # it will be true if the page is a summary page
   summary_page <- str_detect(text, "\nCHILDREN BY AGES[/] ANALYSIS OF CATEGORY")
   
-  # if the page is a summary exit the function and return the value true 
-  if (summary_page == TRUE) return(summary_page)
+  # if the page is a summary exit the function and return the value true
+  # return a lsit because the non-summary pages will also be lists
+  if (summary_page == TRUE) return(list("summary page"))
   
   # id and name
   id_name <- str_match_all(text, "\n([0-9]{4,}) ([A-Z| ]*)")
@@ -197,7 +198,7 @@ ff_extract_old_format <- function(pdf) {
   name <- str_trim(id_name[[1]][,3]) # name: trim whitespace (name will only show first line)
   
   # star
-  star <- str_extract_all(text, "(?<=\n)[0-9]-STAR|GS[0-9]+|SPPROV|PROBLIC|PROB|LIC SDC|TEMP C|TEMP FCCH")[[1]]
+  star <- str_extract_all(text, "(?<=\n)[0-9]-STAR|GS[0-9]+|SPPROV|PROBLIC|PROB|LIC SDC|TEMP C|TEMP FCCH|PROV")[[1]]
   
   # ind. month and number of employees
   ind_month_emp <- str_match_all(text, "([0-9]{1,2}) +\\([0-9]\\) + [0-9 ]*([0-9]+) +[A-Z]")
@@ -222,17 +223,18 @@ ff_extract_old_format <- function(pdf) {
   
   # category oper. and oper. site
   # both columns will be combined into one and cleaned later
-  oper <- str_match_all(text, '(\\([0-9]\\)).*[0-9] +([A-Za-z ]+)\n')[[1]][,3]
+  # only match from the first row for each school
+  oper <- str_match_all(text, '(\\(1\\)).*[0-9] +([A-Za-z /]+)\n')[[1]][,3]
   oper <- str_replace_all(oper, " +[YN]", "")
   
   # in the vector, the even numbers are the top lien of the PDF, while the odd numbers
   # are the bottom lines
   # add both to dataframe, with even and odd numbers as different rows
-  oper <- data.frame(even = oper[seq.int(1, length(oper), by = 2)],
-                     odd = oper[seq.int(2, length(oper), by = 2)]) %>%
-    # combine both columns into one
-    unite(oper, even, odd, sep = " ", remove = TRUE) %>%
-    .[[1]]
+  # oper <- data.frame(even = oper[seq.int(1, length(oper), by = 2)],
+  #                    odd = oper[seq.int(2, length(oper), by = 2)]) %>%
+  #   # combine both columns into one
+  #   unite(oper, even, odd, sep = " ", remove = TRUE) %>%
+  #   .[[1]]
   
   # county
   # this is at the bottom left of the header

@@ -11,7 +11,7 @@ library(qpdf)
 source('scrapper_functions.R')
 
 # enter year that we want to extract data for
-year <- 2018
+year <- 2017
 
 # vector of column names for the column in the number of children matrix
 num_children_cols <- c('num_infant', 'num_one', 'num_two', 'num_three', 'num_four', 
@@ -28,6 +28,8 @@ url_base <- "https://ncchildcare.ncdhhs.gov/Portals/0/documents/pdf/S/statistica
 
 # iterate through each month, which is a different PDF file
 for (month in months) {
+  
+  month <- 'april'
   
   # initialize dataframe to store single month results
   single_month <- data.frame()
@@ -49,7 +51,7 @@ for (month in months) {
   single_month <- data.frame()
   
   # get the number of pages in the PDF, so we know how many pages to iterate through
-  num_pages <- pdf_length(url)
+  num_pages <- pdf_length(url)[30:100]
   
   for (i in seq_len(num_pages)) {
     
@@ -66,7 +68,7 @@ for (month in months) {
     list_extracts <- ff_extract_old_format(temp_page)
     
     # skip if summary page
-    if (list_extracts == TRUE) next
+    if (list_extracts[[1]] == "summary page") next
     
     # convert list of extracts to columns in dataframe, and
     # combine with reset of the month

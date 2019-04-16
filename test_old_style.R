@@ -3,15 +3,15 @@ library(tabulizer)
 library(pdftools)
 library(qpdf)
 
-file_path <- "https://ncchildcare.ncdhhs.gov/Portals/0/documents/pdf/S/statistical_detail_report_january_2019.pdf"
+file_path <- "https://ncchildcare.ncdhhs.gov/Portals/0/documents/pdf/S/statistical_detail_report_april_2017.pdf"
 pdf_length(file_path)
 
 temp <- tempfile()
 download.file(file_path, temp)
 
 temp_page <- tempfile()
-pdf_subset(temp, pages = 1, output = temp_page)
-text <- pdf_text('page7.pdf')
+pdf_subset(temp, pages = 14, output = temp_page)
+text <- pdf_text(temp_page)
 
 a <- extract_old_format(text)
 
@@ -63,7 +63,7 @@ extract_old_format <- function(pdf) {
   
   # category oper. and oper. site
   # both columns will be combined into one and cleaned later
-  oper <- str_match_all(text, '(\\([0-9]\\)).*[0-9] +([A-Za-z ]+)\n')[[1]][,3]
+  oper <- str_match_all(text, '(\\(1\\)).*[0-9] +([A-Za-z /]+)\n')[[1]][,3]
   oper <- str_replace_all(oper, " +[YN]", "")
   
   # in the vector, the even numbers are the top lien of the PDF, while the odd numbers
