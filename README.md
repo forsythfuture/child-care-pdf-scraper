@@ -25,5 +25,5 @@ read_csv('https://raw.githubusercontent.com/forsythfuture/child-care-pdf-scraper
 
 Facility addresses are not contained in the PDF files, but the NC DHHS maintains a log of addresses at this site: http://ncchildcaresearch.dhhs.state.nc.us/search.asp.
 
-The repo contains a web scraper in the `add_address.R` file that pulls the address for facilities.
+The repo contains a web scraper in the `add_address.R` file that pulls the addresses for facilities. The file `geocode_forsyth.R` uses the Google Maps API to convert the address data to lat / long.  It only converts Forsyth County addresses, but the code can easily be modified to converty any or all counties.
 

@@ -23,7 +23,7 @@ library(RSelenium)
 
 # enter the month and year that you want facility addresses for
 # month should be in lower case
-month <- 'january'
+month <- 'march'
 year <- 2019
 
 # create url to the month / year dataset hosted on github
