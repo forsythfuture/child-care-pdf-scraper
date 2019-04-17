@@ -198,15 +198,15 @@ ff_extract_old_format <- function(pdf) {
   name <- str_trim(id_name[[1]][,3]) # name: trim whitespace (name will only show first line)
   
   # star
-  star <- str_extract_all(text, "(?<=\n)[0-9]-STAR|GS[0-9]+|SPPROV|PROBLIC|PROB|LIC SDC|TEMP C|TEMP FCCH|PROV")[[1]]
+  star <- str_extract_all(text, "(?<=\n)([0-9]-STAR|GS[0-9]+|PGS[0-9]+|SPPROV|PROBLIC|PROB|LIC SDC|TEMP|PROV)")[[1]]
   
   # ind. month and number of employees
-  ind_month_emp <- str_match_all(text, "([0-9]{1,2}) +\\([0-9]\\) + [0-9 ]*([0-9]+) +[A-Z]")
+  ind_month_emp <- str_match_all(text, "(  [0-9]{1,2}) {1,4}\\([0-9]\\) + [0-9* ]*([0-9]+) +[A-Z]")
   ind_month <- ind_month_emp[[1]][,2]
   emp <- ind_month_emp[[1]][,3]
   
   # number of children
-  number_children <- str_extract_all(text, "(?<=\\([0-9]\\)) +([0-9]+ +){9}[0-9]+") %>%
+  number_children <- str_extract_all(text, "(?<=\\([0-9]\\)) +([0-9]+ +){9}[0-9*]+") %>%
     .[[1]] %>%
     str_trim() %>%
     # each age group column in the pdf is separated by a space in the R object;
@@ -214,7 +214,9 @@ ff_extract_old_format <- function(pdf) {
     str_split_fixed(" +", n = 10) %>%
     # convert to data frame
     as_tibble() %>%
-    # make all teh values integers
+    # convert any possible '***' values to NA
+    replace_with_na_all(condition = ~.x == '***') %>%
+    # make all the values integers
     mutate_all(funs(as.integer))
   
   # SCC

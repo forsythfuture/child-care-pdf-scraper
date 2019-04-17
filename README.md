@@ -4,9 +4,11 @@ The North Carolina Division of Child Development and Early Education collects in
 
 The PDF files can be found here: (https://ncchildcare.ncdhhs.gov/County/Child-Care-Snapshot/Child-Care-Statistical-Report).
 
-This repo contains R scripts that scrapes the PDF files and enters the data into a single data frame.  The PDF files are pulled straight from the internet into RAM, and then scraped and discarded.  They do not touch the hard drive.
+This repo contains R scripts that scrape the PDF files, enter the data into data frames, and output the data as csv files.  The PDF files are pulled straight from the internet into RAM, and then scraped and discarded.  They do not touch the hard drive.
 
 The script produces a distinct csv file for each month's data, and the data includes all licensed daycare facilities within North Carolina.  The columns in the csv file follow the columns in the original PDF. One difference, however, is that the `Category Operation` and `Operation Site` columns in the PDF are merged in the same column within the csv file. The is a by-product of how the data is extracted, and a follow-up script will clean and separate these column so they mirror the PDF files.
+
+In 2017, the state changed the format of the PDF files.  This change broke the scraper, so two scrapers are required. The file `extract_data_new.R` handles the new format, while `extract_data_old.R` scrapes the old format.
 
 ### Data files
 
@@ -24,3 +26,4 @@ read_csv('https://raw.githubusercontent.com/forsythfuture/child-care-pdf-scraper
 Facility addresses are not contained in the PDF files, but the NC DHHS maintains a log of addresses at this site: http://ncchildcaresearch.dhhs.state.nc.us/search.asp.
 
 The repo contains a web scraper in the `add_address.R` file that pulls the address for facilities.
+

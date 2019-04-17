@@ -5,6 +5,7 @@
 ####################################################################################
 
 library(tidyverse)
+library(naniar)
 library(pdftools)
 library(qpdf)
 
@@ -20,7 +21,7 @@ num_children_cols <- c('num_infant', 'num_one', 'num_two', 'num_three', 'num_fou
 # each PDF file is a different month,
 # so we will iterate through months, extracting files
 # month names must be lower case, because they are lower case in file names
-months <- str_to_lower(month.name)
+months <- c('may', 'april', 'march', 'february') # str_to_lower(month.name)
 
 # each monthly file is at a different url, with a consistent style
 # the string below represents the base URL, with month and year added at the end
@@ -28,8 +29,6 @@ url_base <- "https://ncchildcare.ncdhhs.gov/Portals/0/documents/pdf/S/statistica
 
 # iterate through each month, which is a different PDF file
 for (month in months) {
-  
-  month <- 'april'
   
   # initialize dataframe to store single month results
   single_month <- data.frame()
@@ -51,12 +50,11 @@ for (month in months) {
   single_month <- data.frame()
   
   # get the number of pages in the PDF, so we know how many pages to iterate through
-  num_pages <- pdf_length(url)[30:100]
+  num_pages <- pdf_length(url)
   
   for (i in seq_len(num_pages)) {
     
     # print out update on progress
-    print(year)
     print(month)
     print(i)
     
@@ -88,18 +86,23 @@ for (month in months) {
              employees = rep(list_extracts[[5]], each = 3)) %>%
       bind_rows(single_month, .)
       
-    # remove temp file
+    # unlink temp file for single page
     unlink(temp_page)
     
   }
   
-  # write out data to 'data' folder
-  write_csv(single_month, output_file)
+  # write out data to 'data' folder after reordering columns
+  single_month %>%
+    mutate(month = month,
+           year = year) %>%
+    select(id:shift,num_infant:children_max, cat_op:employees, month, year) %>%
+    write_csv(output_file)
   
   rm(single_month)
   
   gc()
   
+  # unlink temp file for monthly file
   unlink(temp)
   
 }
