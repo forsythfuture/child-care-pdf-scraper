@@ -12,7 +12,7 @@ library(qpdf)
 source('scrapper_functions.R')
 
 # enter year that we want to extract data for
-year <- 2017
+year <- 2013
 
 # vector of column names for the column in the number of children matrix
 num_children_cols <- c('num_infant', 'num_one', 'num_two', 'num_three', 'num_four', 
@@ -21,7 +21,7 @@ num_children_cols <- c('num_infant', 'num_one', 'num_two', 'num_three', 'num_fou
 # each PDF file is a different month,
 # so we will iterate through months, extracting files
 # month names must be lower case, because they are lower case in file names
-months <- c('may', 'april', 'march', 'february') # str_to_lower(month.name)
+months <- str_to_lower(month.name)
 
 # each monthly file is at a different url, with a consistent style
 # the string below represents the base URL, with month and year added at the end
@@ -75,15 +75,16 @@ for (month in months) {
       rename_at(vars(V1:V10), ~num_children_cols) %>%
       mutate(id = rep(list_extracts[[1]], each = 3),
              county = list_extracts[[9]],
-             name = rep(list_extracts[[2]], each = 3),
+             #name = rep(list_extracts[[2]], each = 3),
              type = list_extracts[[10]],
              star = rep(list_extracts[[3]], each = 3),
-             ind_month = rep(list_extracts[[4]], each = 3),
+             #ind_month = rep(list_extracts[[4]], each = 3),
              shift = rep(c(1, 2, 3), 
                          times = length(list_extracts[[1]])),
              cat_op = rep(list_extracts[[8]], each = 3),
              scc = rep(list_extracts[[7]], each = 3),
-             employees = rep(list_extracts[[5]], each = 3)) %>%
+             employees = rep(list_extracts[[5]], each = 3)
+             ) %>%
       bind_rows(single_month, .)
       
     # unlink temp file for single page
