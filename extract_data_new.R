@@ -10,15 +10,16 @@ library(tabulizer)
 source('scrapper_functions.R')
 
 # enter year that we want to extract data for
-year <- 2018
+year <- 2017
 
 # each PDF file is a different month,
 # so we will iterate through months, extracting files
 # month names must be lower case, because they are lower case in file names
-months <- str_to_lower(month.name)
+months <- c('september', 'october', 'november') #str_to_lower(month.name) february
 
 # each monthly file is at a different url, with a consistent style
 # the string below represents the base URL, with month and year added at the end
+# prior to February 2019, the "/F/" was an "/S/"
 url_base <- "https://ncchildcare.ncdhhs.gov/Portals/0/documents/pdf/S/statistical_detail_report_"
 
 # coordinates to extract
