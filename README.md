@@ -27,3 +27,6 @@ Facility addresses are not contained in the PDF files, but the NC DHHS maintains
 
 The repo contains a web scraper in the `add_address.R` file that pulls the addresses for facilities. The file `geocode_forsyth.R` uses the Google Maps API to convert the address data to lat / long.  It only converts Forsyth County addresses, but the code can easily be modified to converty any or all counties.
 
+### Missing data
+
+The following months are missing from the scraped data due to either the raw PDF file missing, or the PDF file being unscrapable: February 2017 and November 2016.

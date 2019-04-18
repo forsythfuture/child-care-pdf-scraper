@@ -197,8 +197,10 @@ ff_extract_old_format <- function(pdf) {
   id <- id_name[[1]][,2] # id
   name <- str_trim(id_name[[1]][,3]) # name: trim whitespace (name will only show first line)
   
-  # star
-  star <- str_extract_all(text, "(?<=\n)([0-9]-STAR|GS[0-9]+|PGS[0-9]+|SPPROV|PROBLIC|PROB|LIC SDC|TEMP|PROV)")[[1]]
+  # star PROBLIC|PROB|
+  star <- str_extract_all(text, "(?<=\n)([0-9]-STAR|GS[0-9]+.+\\(2\\)|PGS[0-9]+|PROB |PROBLIC .+\\(2\\)|SPPROV|LIC SDC|TEMP|PROV)")[[1]] %>%
+    str_replace_all("PROBLIC .+\\(2\\)", "PROBLIC") %>%
+    str_replace_all("GS[0-9]+.+\\(2\\)", "GS[0-9]+")
   
   # ind. month and number of employees
   ind_month_emp <- str_match_all(text, "(  [0-9]{1,2}) {1,4}\\([0-9]\\) + [0-9* ]*([0-9]+) +[A-Z]")
@@ -228,15 +230,6 @@ ff_extract_old_format <- function(pdf) {
   # only match from the first row for each school
   oper <- str_match_all(text, '(\\(1\\)).*[0-9] +([A-Za-z /]+)\n')[[1]][,3]
   oper <- str_replace_all(oper, " +[YN]", "")
-  
-  # in the vector, the even numbers are the top lien of the PDF, while the odd numbers
-  # are the bottom lines
-  # add both to dataframe, with even and odd numbers as different rows
-  # oper <- data.frame(even = oper[seq.int(1, length(oper), by = 2)],
-  #                    odd = oper[seq.int(2, length(oper), by = 2)]) %>%
-  #   # combine both columns into one
-  #   unite(oper, even, odd, sep = " ", remove = TRUE) %>%
-  #   .[[1]]
   
   # county
   # this is at the bottom left of the header
