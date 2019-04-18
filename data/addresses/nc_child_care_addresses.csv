@@ -72,6 +72,7 @@ id,street,city,zip
 01000629,302 Trail Four,Burlington,27215
 01000631,947 South Fifth Street,Mebane,27302
 01000635,3804 Bonnar Bridge Parkway,Burlington,27215
+01000637,1935 Hanford Road,Burlington,27215
 0153874,508 W  Davis Street,Burlington,27215
 0155013,1247 Jimmie Kerr Road,Graham,27253
 0155018,601 E Main Street,Haw River,27258
@@ -189,6 +190,7 @@ id,street,city,zip
 07000228,1035 East 6th Street,Washington,27889
 07000235,940 Hudnell Street,Washington,27889
 07000236,689 Flanders Filter Road,Washington,27889
+07000243,442 Third Street,Aurora,27806
 0755052,884 Hwy 33 E,Chocowinity,27817
 08000005,901 N  King Street,Windsor,27983
 08000016,247 Pocosin Road,Windsor,27983
@@ -243,6 +245,7 @@ id,street,city,zip
 10000244,3973 Mount Misery Road Ne,Leland,28451
 10000283,1034 Ashland Way,Leland,28451
 10000288,880 Batton Road,Boiling Spring Lakes,28461
+10000293,1005 Royal Oak Road,Supply,28462
 1005141,983 Taft Road  Sw,Supply,28462
 10000012,71 N  Piney Grove Rd,Bolivia,28422
 10000026,1269  Cedar Grove Road,Supply,28462
@@ -360,6 +363,7 @@ id,street,city,zip
 11000883,27 Cordova Street,Asheville,28806
 11000885,1 School Road,Asheville,28806
 11000890,235 Old Us 70 Hwy,Swannanoa,28778
+11000892,20 Sterling Street,Asheville,28803
 1150844,916 West Chapel Road,Asheville,28803
 1151885,5 Oak Street,Asheville,28801
 1152012,789a  Merrimon Ave,Asheville,28804
@@ -376,7 +380,6 @@ id,street,city,zip
 1155158,89 Salola St,Asheville,28806
 1155165,67 Furman Ave,Asheville,28801
 1155171,84 Snow Hill Church Rd,Candler,28715
-1155181,98 Sulpher Springs Road,Asheville,28806
 1155191,12 Culvern Street,Asheville,28804
 1159001,385 Hazel Mill Road,Asheville,28806
 12000110,1182 Oak Hill Drive,Morganton,28655
@@ -446,7 +449,7 @@ id,street,city,zip
 13000510,7335 Mill Ruins Ave Sw,Concord,28025
 1305130,329 Moore Place,Concord,28025
 13000087,4065 Poplar Tent Road,Concord,28027
-13000088,3505 S  Ridge Ave,Concord,28025
+13000088,100 Transit Court Nw,Concord,28025
 13000121,4401 Weddington Rd,Concord,28027
 13000143,375 George W Liles Parkway Nw,Concord,28027
 13000144,5454 Rocky River Rd,Concord,28025
@@ -534,7 +537,6 @@ id,street,city,zip
 14000199,1130 Rosedale Drive,Lenoir,28645
 14000216,2228 Olde Well Rd,Hudson,28638
 14000220,493 Pine Mountain Rd,Hudson,28638
-14000288,529 Circle Drive,Hudson,28638
 14000292,1500 Dudley Shoals School Road,Granite Falls,28630
 14000293,4436 Sawmills School Road,Granite Falls,28630
 14000295,630 Lower Creek Drive Ne,Lenoir,28645
@@ -577,6 +579,7 @@ id,street,city,zip
 14000420,1350 Yadkin River Road,Lenoir,28645
 14000423,4603 Oak Hill School Road,Lenoir,28645
 14000424,4690 Collettsville School Drive,Collettsville,28611
+14000426,4603 Oak Hill School Road,Lenoir,28645
 1455043,5638 Grace Chapel Road,Hickory,28601
 1455053,2322 Keith Avenue,Granite Falls,28630
 1455075,7035 Spartan Dr,Hudson,28638
@@ -612,7 +615,6 @@ id,street,city,zip
 16000183,903 Church Street,Newport,28570
 16000185,555 W B Mclean Drive,Cape Carteret,28584
 16000201,7025 Us Highway 70 East Suites C-D,Newport,28570
-16000203,1947 Us Highway 70e,Beaufort,28516
 1659000,500 Ann St,Beaufort,28516
 1659002,5054 Highway 24,Newport,28570
 17000020,640 0ld Highway 86 North,Yanceyville,27379
@@ -695,11 +697,11 @@ id,street,city,zip
 18000553,306 West I Street,Newton,28658
 18000554,221 West 26th Street,Newton,28658
 18000555,810 Hunsucker Drive,Conover,28613
-18000563,1845 Edgewater Drive Nw,Conover,28613
 18000564,684 30th Street Ne,Conover,28613
 18000565,21 16th Avenue Nw,Hickory,28601
 18000566,737 12th St Sw,Hickory,28602
 18000568,8057 Island Point Road,Sherrills Ford,28673
+18000577,207 6th Street Sw,Conover,28613
 1853095,1234 3rd Street  N E,Hickory,28601
 1853872,410 21st St  S E,Hickory,28602
 1854414,339 2nd Ave Nw,Hickory,28601
@@ -730,6 +732,7 @@ id,street,city,zip
 19000322,631 Old Graham Road,Pittsboro,27312
 19000339,829 Piney Grove Church Road,Siler City,27344
 19000351,255 N Church Street,Goldston,27252
+19000360,3721 Old Graham Rd,Pittsboro,27312
 1905056,787 Piney Grove Church Rd,Siler City,27344
 19000058,610 N Third Ave,Siler City,27344
 19000161,69 Robyns Nest Lane,Pittsboro,27312
@@ -803,7 +806,6 @@ id,street,city,zip
 23000460,303 Lake Montonia Road,Kings Mountain,28086
 23000469,801 Bethlehem Rd,Kings Mountain,28086
 23000470,137 Hillcrest St,Shelby,28152
-23000476,906 Mcgowan Rd,Shelby,28150
 23000093,2231 S Post Road,Shelby,28152
 23000115,1633 South Post Road,Shelby,28152
 23000154,1316 North Post Rd,Shelby,28150
@@ -856,7 +858,6 @@ id,street,city,zip
 2355004,500 Melody Lane,Shelby,28152
 2355013,120 North Lafayette Street,Shelby,28150
 2355040,1203 Charles Road,Shelby,28152
-24000007,833 Pinewood Dr,Whiteville,28472
 24000043,2842 Thompson Town Road,Whiteville,28472
 24000061,95 Vereen Ave,Tabor City,28463
 24000078,230 Crepe Myrtle Ln,Whiteville,28472
@@ -900,6 +901,7 @@ id,street,city,zip
 25000242,184 E Pleasant Hill,New Bern,28562
 25000250,912 Colony Dr,New Bern,28562
 25000258,2028 Tuscarora Rhems Rd,New Bern,28562
+25000276,1725 Washington St,New Bern,28560
 25000333,522 Gene Drive,Havelock,28532
 25000361,31 Autumn Place,New Bern,28562
 25000365,2901 Monroe Drive,New Bern,28562
@@ -946,6 +948,7 @@ id,street,city,zip
 25000564,603 Gaston Blvd,New Bern,28560
 25000566,4147 Dr Mlk Jr Blvd,New Bern,28562
 25000570,201 Cunningham Boulevard,Havelock,28532
+25000576,1128 South Glenburnie Road,New Bern,28560
 2550324,2314 Elizabeth Avenue,New Bern,28562
 2555022,1200 Myrtle Avenue,New Bern,28560
 2555067,125 Old Godette School Road,Havelock,28532
@@ -1025,7 +1028,6 @@ id,street,city,zip
 26002372,6645 Hillbrook Road,Hope Mills,28348
 26002376,6931 Wadsworth Pl,Fayetteville,28314
 26002377,3231 Lubbock Drive,Hope Mills,28348
-26002383,NA,NA,NA
 26002387,1503 Palmer Drive,Fayetteville,28303
 26002388,7661 Southbend Dr,Fayetteville,28314
 26002389,2951 Chillingworth Dr,Fayetteville,28306
@@ -1033,6 +1035,8 @@ id,street,city,zip
 26002401,712 Glacier Cir,Fayetteville,28311
 26002408,2520 Camp Lejeune Court,Hope Mills,28348
 26002412,3727 Floyd Drive,Hope Mills,28348
+26002417,1771 Flintshire Road,Fayetteville,28304
+26002419,5122 Redwood Drive,Fayetteville,28304
 26000011,612 Samuel Drive,Spring Lake,28390
 26000063,2767 Strickland Bridge Road,Fayetteville,28306
 26000066,5371 Silverpine Drive,Fayetteville,28303
@@ -1225,6 +1229,10 @@ id,street,city,zip
 26002406,7652 Raeford Rd,Fayetteville,28304
 26002407,3039 Enterprise Avenue,Fayetteville,28306
 26002410,7011 Nexus Court,Fayetteville,28304
+26002414,1914 Camden Road,Fayetteville,28306
+26002415,4027 South Main Street,Hope Mills,28348
+26002421,1319 North Bragg Blvd,Spring Lake,28390
+26002424,6869 Cliffdale Road,Fayetteville,28314
 2651624,985 South Mcpherson Church Rd,Fayetteville,28303
 2655008,4625 Campground Church Road,Fayetteville,28314
 2655031,228 Owen Drive,Fayetteville,28304
@@ -1522,7 +1530,6 @@ id,street,city,zip
 32002168,2116 Lime Street,Durham,27704
 32002176,1312 Rosewood Street,Durham,27701
 32002183,108 W Alton Street,Durham,27707
-32002185,111 Bassett Hall Drive,Durham,27713
 32002189,2404 Nelson Highway,Chapel Hill,27517
 32002191,207 Cook Road,Durham,27713
 32002194,2307 Harvard Avenue,Durham,27703
@@ -1675,6 +1682,8 @@ id,street,city,zip
 32002219,4005 Holt School Road,Durham,27704
 32002221,1301 Riddle Rd,Durham,27713
 32002227,2101 Angier Ave,Durham,27707
+32002231,215 Goodwin Dr,Durham,27712
+32002235,4900 Prospectus Dr Suite 100,Durham,27713
 3206032,1211 Carroll St,Durham,27707
 3250344,1515 Clermont Road,Durham,27713
 3250526,305 E  Main Street,Durham,27701
@@ -1815,6 +1824,8 @@ id,street,city,zip
 34001287,6320 Wynyard Ave,Rural Hall,27045
 34001297,4990 Murray Road,Winston-Salem,27106
 34001298,2947 Old Salisbury Rd,Winston-Salem,27127
+34001307,2023 East 24th Street,Winston-Salem,27105
+34001312,1300 Polo Road,Winston-Salem,27106
 3405318,205 Old Hollow Road,Rural Hall,27045
 3405334,4949 Lacasta Ln,Walkertown,27051
 3405377,475 Country Lane,Lewisville,27023
@@ -1956,7 +1967,6 @@ id,street,city,zip
 36000423,826 Normandy View,Gastonia,28052
 36000426,4369 Timberwood Drive,Gastonia,28056
 36000437,128 Ashton Woods Court,Mount Holly,28120
-36000442,500 Windy Hill Drive,Gastonia,28052
 36000537,601 Tareyton Drive,Gastonia,28052
 36000550,506 Bear Brook Lane,Gastonia,28052
 36000567,1545 Lewis Farm Road,Kings Mountain,28086
@@ -2069,18 +2079,6 @@ id,street,city,zip
 39000115,600 15th St,Butner,27509
 39000220,2213 Bayswater Drive,Creedmoor,27522
 39000249,3512 Chewning Road,Oxford,27565
-39000020,208 Gregory Place,Oxford,27565
-39000040,101 S  Peachtree Street,Creedmoor,27522
-39000047,3237 Knotts Grove Rd,Oxford,27565
-39000063,3203 Bruce Garner Road,Creedmoor,27522
-39000085,1577 Munns Road,Creedmoor,27522
-39000119,108 Main Street,Creedmoor,27522
-39000151,412 Ivey Day Road,Oxford,27565
-39000152,2555 Highway 96,Franklinton,27525
-39000153,305 Wilton Avenue,Creedmoor,27522
-39000154,201 East D Street,Butner,27509
-39000164,2652 Highway 56,Creedmoor,27522
-39000165,223 College Street,Oxford,27565
 39000167,7696 Hwy 15 North,Stovall,27582
 39000168,616 Martin Luther King Jr Avenue,Oxford,27565
 39000169,8176 Highway 96n,Oxford,27565
@@ -2102,6 +2100,7 @@ id,street,city,zip
 39000242,1224 College St,Oxford,27565
 39000247,145 Crescent Drive,Oxford,27536
 39000248,101 Hllside Drive,Oxford,27565
+39000251,2528 East Lyon Station Road,Creedmoor,27522
 3955017,202 Gillis Street,Stovall,27582
 3955018,305 West C Street,Butner,27509
 40000045,10536 Hwy 91 S,Walstonburg,27888
@@ -2203,9 +2202,12 @@ id,street,city,zip
 41002313,5334 Chandler Oaks Lane,Mcleansville,27301
 41002316,1800 Huffine Mill Road,Greensboro,27405
 41002317,1603 Coventry Woods Court,Greensboro,27405
+41002328,908 Martin Street,Greensboro,27406
 41002330,2614 Fore Street,Greensboro,27407
 41002333,208 Hammond Drive,Greensboro,27406
 41002335,5615 Riverdale Drive,Jamestown,27282
+41002338,1816 Eastwood Ave,Greensboro,27401
+41002341,4002 Waldenbrook Road,Greensboro,27407
 4105659,4205 Olympia Drive,Greensboro,27406
 4105836,6603 Glenbrooke Dr,Pleasant Garden,27313
 4105843,3019 Locksley Ave,Greensboro,27406
@@ -2324,7 +2326,6 @@ id,street,city,zip
 41001443,5813 Lake Brandt Road,Greensboro,27455
 41001446,1305 Merritt Drive,Greensboro,27407
 41001467,1575 John Knox Drive,Colfax,27235
-41001478,1009 Blazingwood Drive,Greensboro,27406
 41001493,514 Pisgah Church Road,Greensboro,27455
 41001498,2905 Holmes Road,Greensboro,27405
 41001511,1215 Westover Teracce,Greensboro,27408
@@ -2480,7 +2481,10 @@ id,street,city,zip
 41002324,3235 Horse Pen Creek Road,Greensboro,27410
 41002326,4603 Yanceyville Road,Browns Summit,27214
 41002327,4501 Lake Jeanette Road,Greensboro,27455
+41002329,2203 Coliseum Blvd,Greensboro,27403
 41002336,1342 N  O'henry Blvd,Greensboro,27405
+41002339,1125 Tucker Street,Greensboro,27405
+41002344,600 Mayflower Drive,Greensboro,27403
 4105698,3109 Goodall Dr,Greensboro,27407
 4105969,1312 Larkin Street,Greensboro,27406
 4150002,602  Hyde St,Greensboro,27406
@@ -2545,6 +2549,7 @@ id,street,city,zip
 42000249,201 Beech Street,Hobgood,27843
 42000250,805 Washington Avenue,Weldon,27890
 42000253,515 Becker Drive,Roanoke Rapids,27870
+42000259,9986 Nc-903,Halifax,27839
 4255011,1505 Washington Avenue,Weldon,27890
 4255034,39131 Highway 561,Hollister,27844
 43000021,1668 Chalybeate Springs Road,Angier,27501
@@ -2617,8 +2622,10 @@ id,street,city,zip
 43000579,747 Shawtown Rd,Lillington,27546
 43000584,921 N Raleigh St,Angier,27501
 43000585,130 E Mciver St,Angier,27501
+43000586,622 Buffalo Lake Rd,Sanford,27332
 43000588,520 Olive Farm Drive,Sanford,27332
 43000590,96 Craven Court,Spring Lake,28390
+43000592,4507 Nc Hwy 55,Erwin,28339
 4351943,309 Hickory Street,Angier,27501
 4355023,271 Leslie Campbell Avenue,Buies Creek,27506
 4355041,105 Duke Road,Dunn,28334
@@ -2673,7 +2680,6 @@ id,street,city,zip
 45000312,529 Fassifern Court,Hendersonville,28791
 45000322,19 Misty Rose Lane,Arden,28704
 45000357,1113 South Mills River Rd,Mills River,28759
-45000367,48 Woodfern Road,Fletcher,28732
 45000031,45 Education Drive,Flat Rock,28731
 45000064,814 N Oak St,Hendersonville,28793
 45000106,690 Ridge Road,Hendersonville,28792
@@ -2899,7 +2905,6 @@ id,street,city,zip
 50000067,52 Keener Cabin Road,Cherokee,28719
 50000077,516 Parris Branch Road,Sylva,28779
 50000088,286 Skyland Drive,Sylva,28779
-50000097,332 Big Orange Way,Sylva,28779
 50000098,46 Plastic Plant Rd,Cashiers,28717
 50000104,416 Central Drive,Cullowhee,28723
 50000109,5 Mitchell Road,Sylva,28779
@@ -2910,6 +2915,7 @@ id,street,city,zip
 50000122,486 Fairview Rd,Sylva,28779
 50000124,884 Us Highway 441 North,Whittier,28789
 50000125,884 Us Highway 441 North,Whittier,28789
+50000126,278 Victory Church Road,Sylva,28779
 5055009,1528 Webster Road,Webster,28788
 51000104,3608 Barber Mill Road,Clayton,27520
 51000193,2803 Brittany Dr,Clayton,27520
@@ -3068,6 +3074,7 @@ id,street,city,zip
 53000332,307 South Main Street,Broadway,27505
 53000333,1101 South Seventh Street,Sanford,27330
 53000334,1618 Deep River Rd,Sanford,27330
+53000337,119 Log Cabin Lane,Sanford,27330
 5350976,407 West Main Street,Sanford,27330
 5355044,607 W Mcintosh Street,Sanford,27330
 5355058,445 Center Church Road,Sanford,27330
@@ -3290,7 +3297,6 @@ id,street,city,zip
 60002423,5903 Lawnmeadow Drive,Charlotte,28216
 60002446,4407 Dalmoor Drive,Charlotte,28212
 60002455,4711 Fox Thorne Drive,Charlotte,28216
-60002477,1723 Beckwith Place,Charlotte,28205
 60002507,6518 Park Road,Charlotte,28210
 60002574,8601 First Run Court,Charlotte,28215
 60002653,4729 Lone Tree Court,Charlotte,28269
@@ -3328,6 +3334,7 @@ id,street,city,zip
 60003369,10227 Hugue Way,Charlotte,28214
 60003371,228 Wednesbury Blvd,Charlotte,28262
 60003405,7924 Scottwood Terrace,Charlotte,28212
+60003442,829 Mcarthur Avenue,Charlotte,28206
 60003454,1701 Bray Drive,Charlotte,28214
 60003512,416 Woodvale Place,Charlotte,28208
 60003529,10307 Ashley Farm Drive,Matthews,28105
@@ -3377,6 +3384,7 @@ id,street,city,zip
 60003926,13412 Mallard Landing Road,Charlotte,28278
 60003927,2819 Sloan Drive,Charlotte,28208
 60003928,4010 Meadowview Hills Drive,Charlotte,28269
+60003941,6622 Santa Cruz Trl,Charlotte,28227
 6005503,4535 Munsee Street,Charlotte,28213
 6005651,321 Cooper Drive,Charlotte,28210
 6006045,1009 Greenleaf Ave,Charlotte,28202
@@ -3543,6 +3551,7 @@ id,street,city,zip
 60002421,2815 Greenland Ave,Charlotte,28208
 60002431,10335 Feldfarm Lane,Charlotte,28210
 60002463,6250 Blakeney Park Drive,Charlotte,28277
+60002477,1723 Beckwith Place,Charlotte,28205
 60002481,13105 Eastfield Village Lane,Charlotte,28269
 60002487,8631 Pineville Matthews Road,Charlotte,28226
 60002494,11330 Rozzelles Ferry Road,Charlotte,28214
@@ -3763,8 +3772,14 @@ id,street,city,zip
 60003920,1551 Arrowpoint Lane,Charlotte,28278
 60003923,715 Hartford Avenue,Charlotte,28209
 60003924,124 Skyland Avenue,Charlotte,28205
+60003929,1994 City Church Drive,Huntersville,28078
+60003931,9213 Beatties Ford Rd,Huntersville,28078
 60003932,1240 Badger Court,Charlotte,28206
+60003934,11524 N Tryon Street,Charlotte,28262
 60003937,9137 Sharonbrook Drive,Charlotte,28210
+60003938,13755 Steele Creek Road,Charlotte,28273
+60003939,4101 Morris Field Drive,Charlotte,28208
+60003944,6450 Tuckaseegee Road,Charlotte,28214
 6050404,3900 Park Road,Charlotte,28209
 6050427,242 Gamble Street,Davidson,28036
 6050428,501 N  Tryon Street,Charlotte,28202
@@ -3861,7 +3876,6 @@ id,street,city,zip
 63000461,800 Harris Street,Aberdeen,28315
 63000477,612 B Thomas Avenue,Aberdeen,28315
 63000478,343 Midway Road,Aberdeen,28315
-63000480,104 Meredith Dr,Aberdeen,28315
 63000485,154 Montoia Drive,Pinebluff,28373
 63000487,1429 L Cooper Road,Cameron,28326
 63000495,165 Catalpa Lane South,Pinehurst,28374
@@ -3897,6 +3911,7 @@ id,street,city,zip
 63000464,154 Kirk Road,Aberdeen,28315
 63000466,1135 Seven Lakes Drive,West End,27376
 63000474,1725 Richards Street,Southern Pines,28387
+63000480,104 Meredith Dr,Aberdeen,28315
 63000483,151 South Carlisle Street,Southern Pines,28387
 63000488,621 Sw Service Road,Southern Pines,28387
 63000489,7681 Us 15-501 Hwy,Eastwood,28370
@@ -4009,6 +4024,7 @@ id,street,city,zip
 65001014,3606 Lydford Court,Wilmington,28409
 6505281,4817 Calder Ct,Wilmington,28405
 65000024,423 N 23rd Street,Wilmington,28405
+65000032,500 Military Cutoff Road,Wilmington,28405
 65000153,705 South 3rd Street,Wilmington,28401
 65000169,6620 Windmill Way,Wilmington,28405
 65000178,1401 South 16th St,Wilmington,28401
@@ -4111,6 +4127,7 @@ id,street,city,zip
 67001126,409 University Drive,Jacksonville,28546
 67001138,129 Silverleaf Drive,Jacksonville,28546
 67001147,602 Foxfire Circle,Jacksonville,28546
+67001157,713 Nc Hwy 172,Hubert,28539
 67000007,117 West Hargett Street,Richlands,28574
 67000037,531 Henderson Dr,Jacksonville,28540
 67000071,117 Wheeler Creek Road,Sneads Ferry,28460
@@ -4128,6 +4145,7 @@ id,street,city,zip
 67000854,3980 Gum Branch Road,Jacksonville,28540
 67000859,677 Sandridge Road,Hubert,28539
 67000961,113 Forbes Estates Drive,Jacksonville,28540
+67000973,361 Rhodestown Road,Jacksonville,28540
 67000989,920 Gumbranch Road,Jacksonville,28540
 67000994,1510 Gum Branch Road,Jacksonville,28540
 67001032,120 Terry Lee Lanier Drive,Jacksonville,28546
@@ -4153,7 +4171,6 @@ id,street,city,zip
 67001132,19 Doris Ave E,Jacksonville,28540
 67001141,406 Carole Drive,Jacksonville,28540
 67001145,1675 Piney Green Road,Jacksonville,28546
-67001146,251 Northwest Circle,Jacksonville,28546
 67001150,103 Ridge Field Avenue,Sneads Ferry,28460
 67001151,3450 Hunter's Trail,Jacksonville,28546
 67001152,101 Beaufort Drive,Sneads Ferry,28460
@@ -4176,6 +4193,7 @@ id,street,city,zip
 68000533,103 A Louise Armstrong Court,Chapel Hill,27514
 68000540,110 Taylor Street,Chapel Hill,27514
 68000543,106 Aster Place,Chapel Hill,27516
+68000545,113 Wolf's Trail,Chapel Hill,27516
 68000066,402 Pritchard Ave,Chapel Hill,27516
 68000135,401 Kildaire Road,Chapel Hill,27516
 68000150,890 Old Fayetteville Road,Chapel Hill,27516
@@ -4479,6 +4497,7 @@ id,street,city,zip
 74000864,400 Watauga Avenue,Greenville,27834
 74000866,105 Airport Road,Greenville,27834
 74000872,2502 Dickinson Avenue,Greenville,27834
+74000877,1365 Sw Greenville Blvd,Greenville,27834
 7455028,1026 Red Banks Road,Greenville,27834
 7455092,2263 Stantonsburg Road,Greenville,27834
 7455114,4834 County Home Road,Greenville,27858
@@ -4572,6 +4591,7 @@ id,street,city,zip
 77000167,400 Monroe Avenue,Hamlet,28345
 77000168,106 Murray Manor Lane,Rockingham,28379
 77000175,596 E Washington St Ext,Rockingham,28379
+77000178,100 Biltmore Dr,Rockingham,28379
 7755054,105 Fayetteville Street,Hamlet,28345
 78000019,51 Nealy Ave,Lumberton,28360
 78000060,81 Sanford St  Clyborne Pines,Lumberton,28359
@@ -4581,7 +4601,6 @@ id,street,city,zip
 78000372,210 Auston Road,Rowland,28383
 78000393,3618 Nc Hwy 20w,Saint Pauls,28384
 78000417,163 Reo Drive,Rowland,28383
-78000418,31 Giant Road,Lumberton,28358
 78000425,1409 Mimosa Street,Lumberton,28358
 78000429,3726 Smith Mill Road,Lumberton,28358
 78000002,520 Linwood Avenue,Lumberton,28358
@@ -4676,6 +4695,7 @@ id,street,city,zip
 78000434,8628 Iona Church Road,Fairmont,28340
 78000436,610 Old Whiteville Road,Lumberton,28358
 78000437,840 Piney Grove Road,Lumberton,28360
+78000439,503 N Willow St,Lumberton,28359
 7853439,1509 Union Chapel Road,Pembroke,28372
 7853443,715 E George St,Saint Pauls,28384
 7855027,606 North Walnut Street,Lumberton,28358
@@ -4836,7 +4856,6 @@ id,street,city,zip
 82000292,404 Vann Street,Clinton,28328
 82000299,307 East Boney St,Clinton,28328
 82000304,1201 Barden St,Clinton,28328
-82000118,2337 Hb  Lewis Rd,Clinton,28328
 82000150,118 Jefferson St,Clinton,28328
 82000151,921 Mckoy St,Clinton,28328
 82000153,306 N West St,Roseboro,28382
@@ -4854,7 +4873,6 @@ id,street,city,zip
 82000262,3220 Maxwell Rd,Autryville,28318
 82000263,10400 Taylors Bridge Hwy,Clinton,28328
 82000264,7725 Faison Hwy,Faison,28341
-82000270,606-A College St,Clinton,28328
 82000273,12361 Hobbton Hwy,Newton Grove,28366
 82000274,7725 Faison Hwy,Faison,28341
 82000275,1428 Midway Elementary School Rd,Dunn,28334
@@ -5020,7 +5038,7 @@ id,street,city,zip
 88000101,11839 Rosman Hwy,Lake Toxaway,28747
 88000102,167 Rosman School Rd,Rosman,28772
 8855018,89 Chestnut Street West,Rosman,28772
-8855042,299 South Broad Street,Brevard,28712
+8855042,260 S Gaston Street,Brevard,28712
 89000015,190 L A Kieser Rd,Columbia,27925
 89000019,486 Elementary School Road,Columbia,27925
 8959000,285 Elvin Drive,Columbia,27925
@@ -5097,6 +5115,9 @@ id,street,city,zip
 90000490,3420 Pleasant Plains Rd,Stallings,28104
 90000491,2251 Stallings Road,Matthews,28104
 90000494,3424 Pleasant Plains Rd,Stallings,28104
+90000495,1918 East Roosevelt Blvd Suite H,Monroe,28112
+90000497,2024 Wesley Chapel-Stouts Road,Indian Trail,28079
+90000499,3930 Providence Rd,Waxhaw,28173
 9051664,801 S  Hayne Street,Monroe,28110
 9051843,402 East Park Drive,Monroe,28112
 9051990,108 East Elm Street,Wingate,28174
@@ -5131,7 +5152,7 @@ id,street,city,zip
 91000253,2941 Glebe Road,Henderson,27537
 91000254,1300 Stewart Farm Road,Henderson,27537
 91000282,226 Orville Street,Henderson,27536
-91000285,489 Fern Lane,Henderson,27537
+91000297,101 Pine Forest Dr,Henderson,27536
 91000009,475 J P Taylor Road,Henderson,27537
 91000041,200 Poplar Creek Rd,Henderson,27536
 91000094,905 Americal Rd,Henderson,27536
@@ -5155,6 +5176,7 @@ id,street,city,zip
 91000271,309 Mt Carmel Church Road,Henderson,27537
 91000292,930 South Carolina Avenue,Henderson,27536
 91000295,164 Burwell Avenue,Henderson,27536
+91000296,44 Allen Rd,Henderson,27537
 9151117,1380 Chavis Rd,Kittrell,27544
 9155028,492 Ridgecrest Trail,Henderson,27536
 9155037,1875 Gun Club Rd,Henderson,27536
@@ -5188,7 +5210,6 @@ id,street,city,zip
 92001277,7320 Fribourg Ct,Wendell,27591
 92001338,8105 Farmlea Circle,Raleigh,27616
 92001372,2909 Earth Drive,Apex,27539
-92001395,5704 Sherrif Place,Raleigh,27610
 92001476,1941 Carthage Circle,Raleigh,27604
 92001491,2508 Baney Court,Raleigh,27610
 92001516,3321 Friar Tuck Road,Raleigh,27610
@@ -5204,7 +5225,6 @@ id,street,city,zip
 92001708,2329 Holiday Drive,Raleigh,27610
 92001743,2700 Cabocban Diamond Ct,Raleigh,27610
 92001757,209 Gatewood Drive,Garner,27529
-92001800,5612 Preston Pl,Raleigh,27604
 92001902,7960 Smith Road,Apex,27539
 92001990,4728 Cardinal Grove Blvd,Raleigh,27616
 92001996,8701 Hidden View Court,Raleigh,27613
@@ -5314,6 +5334,10 @@ id,street,city,zip
 92003563,5416 Fieldcross Ct,Raleigh,27610
 92003565,137 Williston Way,Cary,27519
 92003570,4145 Tensity Drive,Raleigh,27604
+92003601,6136 Paducha Drive,Raleigh,27610
+92003604,2505 Boothbay Court,Raleigh,27613
+92003612,501 S Allen Road,Wake Forest,27587
+92003618,3800 Charleston Park Drive,Raleigh,27604
 9205324,410 E  Chatham St,Apex,27502
 9207251,409 Lakeside Drive,Garner,27529
 9207556,4504 Rockwood Drive,Raleigh,27612
@@ -5609,6 +5633,15 @@ id,street,city,zip
 92003591,1601 Martin Luther King Jr  Blvd,Raleigh,27610
 92003593,470 W Williams St,Apex,27502
 92003595,102 Davis Grove Circle,Cary,27519
+92003597,3202 Northampton St,Raleigh,27609
+92003598,8317 Bryan Road,Garner,27529
+92003599,307 Bridge St,Fuquay-Varina,27526
+92003603,1720 Trawick Rd,Raleigh,27604
+92003605,6600 Rogers Rd,Rolesville,27571
+92003608,932 Heather Park Drive,Garner,27529
+92003614,1001 Olive Chapel Road,Apex,27502
+92003619,8808 Old Stage Rd,Raleigh,27603
+92003620,5993 Yates Mill Pond Rd,Raleigh,27606
 9251970,4926 Fayetteville Road,Raleigh,27603
 9252538,608 Royal Street,Raleigh,27607
 9253190,228 W  Edenton Street,Raleigh,27603
@@ -5811,7 +5844,6 @@ id,street,city,zip
 97000017,5728 Greenhorn Rd,Roaring River,28669
 97000028,4 Jolly St,North Wilkesboro,28659
 97000031,775 Breeze Hill Rd,North Wilkesboro,28659
-97000104,285 Boone Trail,North Wilkesboro,28659
 97000142,5100 Old Boone Trail Road,Millers Creek,28651
 97000151,5464 Mountain View Road,Hayes,28635
 97000152,200 Flint Hill Road,North Wilkesboro,28659

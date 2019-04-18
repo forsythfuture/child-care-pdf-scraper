@@ -16,6 +16,9 @@
 # the scope of this script. But, information cna be found here:
 #  http://ropensci.github.io/RSelenium/articles/docker.html
 #
+# to start the Selenium server run the docker container with the command:
+#    sudo docker run -d -p 4445:4444 selenium/standalone-firefox:2.53.0
+#
 #########################################################################
 
 library(tidyverse)
@@ -27,7 +30,7 @@ month <- 'march'
 year <- 2019
 
 # create url to the month / year dataset hosted on github
-base_url <- "https://raw.githubusercontent.com/forsythfuture/child-care-pdf-scraper/master/data/nc_"
+base_url <- "https://raw.githubusercontent.com/forsythfuture/child-care-pdf-scraper/master/data/data_2019/nc_"
 data_url <- str_c(base_url, month, "_", year, ".csv")
 
 # import data
