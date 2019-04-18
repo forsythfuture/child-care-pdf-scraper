@@ -37,5 +37,5 @@ forsyth_addresses <- facilities %>%
   # find lat / long og the address by calling the Google Maps API
   mutate_geocode(address)
 
-write_csv(forsyth_address, 'forsyth_addresses_geocode.csv')
+write_csv(forsyth_addresses, 'data/addresses/forsyth_addresses_geocode.csv')
 
