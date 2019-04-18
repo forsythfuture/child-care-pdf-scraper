@@ -20,7 +20,7 @@ num_children_cols <- c('num_infant', 'num_one', 'num_two', 'num_three', 'num_fou
 url_base <- "https://ncchildcare.ncdhhs.gov/Portals/0/documents/pdf/S/statistical_detail_report_"
 
 # enter years that we want to extract data for
-years <- seq(2005, 2012, 1)
+years <- seq(2010, 2005, -1)
 
 # each PDF file is a different month,
 # so we will iterate through months, extracting files
