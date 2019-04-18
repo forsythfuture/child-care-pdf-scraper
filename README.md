@@ -29,4 +29,4 @@ The repo contains a web scraper in the `add_address.R` file that pulls the addre
 
 ### Missing data
 
-The following months are missing from the scraped data due to either the raw PDF file missing, or the PDF file being unscrapable: February 2017 and November 2016.
+A few months are missing from the scraped data due to either the raw PDF file missing, or the PDF file being unscrapable.
