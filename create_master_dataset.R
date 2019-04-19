@@ -20,7 +20,7 @@ all_years <- map(file_paths, read_csv) %>%
   bind_rows()
 
 # write out csv files
-write_csv(nc_prek, 'data/nc_prek_all.csv')
+write_csv(all_years, 'data/nc_prek_all.csv')
 
 # zip csv file
 gzip('data/nc_prek_all.csv')
