@@ -6,3 +6,5 @@
 .rds
 .Rproj
 *.Rproj
+*.csv
+*.gz

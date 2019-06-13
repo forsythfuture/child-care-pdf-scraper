@@ -17,10 +17,30 @@ file_paths <- list.files('data',
 
 # import all bind together all months and years
 all_years <- map(file_paths, read_csv) %>%
-  bind_rows()
+  bind_rows() %>%
+  # counties are title case in some years, and all upper case in others
+  # make entire column title case
+  mutate(county = str_to_title(county),
+         star = str_to_title(star),
+         name = str_to_title(name),
+         # some years the star column is worded differently,
+         # replace the different wording with the common wording
+         star = str_replace_all(star, '-Star.*', " Star"),
+         # remove center or house designation from star, 
+         # since this is captured in a different column
+         star = str_replace_all(star, "Star.*", "Star"),
+         # various other clean ups to star
+         star = str_replace_all(star, "^Gs.*", "GS"),
+         star = str_replace_all(star, "^Prov.*", "Prov"),
+         star = str_replace_all(star, "^Prob.*", "Prob"),
+         star = str_replace_all(star, "^Sprov.*", "Prov"),
+         star = str_replace_all(star, "^Spprov.*", "Prov"),
+         star = str_replace_all(star, "^Temp.*", "Temp"),
+         star = str_replace_all(star, "^Pgs.*", "GS"),
+         star = str_replace_all(star, ".*Sdc.*", "SDC"))
 
 # write out csv files
-write_csv(nc_prek, 'data/nc_prek_all.csv')
+write_csv(all_years, 'data/nc_prek_all.csv')
 
 # zip csv file
 gzip('data/nc_prek_all.csv')
