@@ -9,6 +9,7 @@
 
 library(tidyverse)
 library(R.utils)
+library(aws.s3)
 
 # create list of all monthly data file names
 file_paths <- list.files('data', 
@@ -39,7 +40,9 @@ updates <- map_df(file_paths, read_csv) %>%
          star = str_replace_all(star, ".*Sdc.*", "SDC"))
 
 # import master file from AWS
-master <- read_csv("https://nc-prek.s3.amazonaws.com/nc_prek_all.csv.gz")
+master <- read_csv("https://nc-prek.s3.amazonaws.com/nc_prek_all.csv.gz",
+                   col_types = cols(name = "c", ind_month = "d",
+                                    category = "c", site = "c"))
 
 # bind updated monthly datasets to master
 master <- bind_rows(updates, master) %>%
@@ -52,7 +55,7 @@ write_csv(master, 'data/nc_prek_all.csv')
 gzip('data/nc_prek_all.csv')
 
 # send to s3
-put_object(file = 'data/nc_prek_all.csv.gz', 
+put_object(file = 'data/nc_prek_all.csv.gz', acl = "public-read",
            object = "nc_prek_all.csv.gz", bucket = "nc-prek")
 
 file.remove("data/nc_prek_all.csv.gz")
