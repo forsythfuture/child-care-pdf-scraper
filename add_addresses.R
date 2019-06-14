@@ -24,17 +24,11 @@
 library(tidyverse)
 library(RSelenium)
 
-# enter the month and year that you want facility addresses for
-# month should be in lower case
-month <- 'march'
-year <- 2019
-
-# create url to the month / year dataset hosted on github
-base_url <- "https://raw.githubusercontent.com/forsythfuture/child-care-pdf-scraper/master/data/data_2019/nc_"
-data_url <- str_c(base_url, month, "_", year, ".csv")
-
-# import data
-facilities <- read_csv(data_url) %>%
+# import data from s3 bucket
+facilities <- read_csv("https://nc-prek.s3.amazonaws.com/nc_prek_all.csv.gz") %>%
+  # filter for the month and year to use
+  filter(year == 2019,
+         month %in% c('may', 'april')) %>%
   # only keep ID column
   select(id) %>%
   distinct()
