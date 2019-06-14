@@ -15,7 +15,7 @@ year <- 2019
 # each PDF file is a different month,
 # so we will iterate through months, extracting files
 # month names must be lower case, because they are lower case in file names
-months <- c('april', 'may')
+months <- c('may', 'april')
 
 # each monthly file is at a different url, with a consistent style
 # the string below represents the base URL, with month and year added at the end
