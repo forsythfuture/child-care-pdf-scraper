@@ -107,8 +107,8 @@ for (i in seq_len(nrow(facilities))) {
 }
 
 # combine facility names to data frame with IDs and addresses
-all_address <- all_address %>%
+all_addresses <- all_addresses %>%
   left_join(facilities, by = "id") %>%
   select(id, name, street, city, zip)
 
-write_csv(all_addresses, 'data/addresses/nc_child_care_addresses.csv')
+write_csv(all_addresses, 'data/nc_child_care_addresses.csv')
