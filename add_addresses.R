@@ -26,11 +26,14 @@ library(RSelenium)
 
 # import data from s3 bucket
 facilities <- read_csv("https://nc-prek.s3.amazonaws.com/nc_prek_all.csv.gz") %>%
+  # convert month to lower case
+  mutate(month = str_to_lower(month)) %>%
   # filter for the month and year to use
   filter(year == 2019,
-         month %in% c('may', 'april')) %>%
+         month == 'may',
+         county == "Forsyth") %>%
   # only keep ID column
-  select(id) %>%
+  select(id, name) %>%
   distinct()
 
 # initialize dataframe to contain addresses
@@ -102,5 +105,10 @@ for (i in seq_len(nrow(facilities))) {
   })
     
 }
+
+# combine facility names to data frame with IDs and addresses
+all_address <- all_address %>%
+  left_join(facilities, by = "id") %>%
+  select(id, name, street, city, zip)
 
 write_csv(all_addresses, 'data/addresses/nc_child_care_addresses.csv')
