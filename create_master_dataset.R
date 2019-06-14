@@ -16,8 +16,7 @@ file_paths <- list.files('data',
                          recursive = T, full.names = T)
 
 # import all bind together all months and years
-all_years <- map(file_paths, read_csv) %>%
-  bind_rows() %>%
+updates <- map_df(file_paths, read_csv) %>%
   # counties are title case in some years, and all upper case in others
   # make entire column title case
   mutate(county = str_to_title(county),
@@ -39,8 +38,21 @@ all_years <- map(file_paths, read_csv) %>%
          star = str_replace_all(star, "^Pgs.*", "GS"),
          star = str_replace_all(star, ".*Sdc.*", "SDC"))
 
+# import master file from AWS
+master <- read_csv("https://nc-prek.s3.amazonaws.com/nc_prek_all.csv.gz")
+
+# bind updated monthly datasets to master
+master <- bind_rows(updates, master) %>%
+  arrange(desc(year), month)
+
 # write out csv files
-write_csv(all_years, 'data/nc_prek_all.csv')
+write_csv(master, 'data/nc_prek_all.csv')
 
 # zip csv file
 gzip('data/nc_prek_all.csv')
+
+# send to s3
+put_object(file = 'data/nc_prek_all.csv.gz', 
+           object = "nc_prek_all.csv.gz", bucket = "nc-prek")
+
+file.remove("data/nc_prek_all.csv.gz")
