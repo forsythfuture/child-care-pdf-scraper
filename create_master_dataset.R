@@ -53,9 +53,17 @@ write_csv(master, 'data/nc_prek_all.csv')
 
 # zip csv file
 gzip('data/nc_prek_all.csv')
+gzip(file_paths)
 
 # send to s3
 put_object(file = 'data/nc_prek_all.csv.gz', acl = "public-read",
            object = "nc_prek_all.csv.gz", bucket = "nc-prek")
 
+put_object(file = str_c(file_paths, ".gz"), 
+           acl = "public-read",
+           object = str_replace(str_c(file_paths, ".gz"), "data/", ""), 
+           bucket = "nc-prek")
+
+
 file.remove("data/nc_prek_all.csv.gz")
+file.remove(str_c(file_paths, ".gz"))
