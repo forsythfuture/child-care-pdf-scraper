@@ -25,13 +25,8 @@ library(tidyverse)
 library(RSelenium)
 
 # import data from s3 bucket
-facilities <- read_csv("https://nc-prek.s3.amazonaws.com/nc_prek_all.csv.gz") %>%
-  # convert month to lower case
-  mutate(month = str_to_lower(month)) %>%
-  # filter for the month and year to use
-  filter(year == 2019,
-         month == 'may',
-         county == "Forsyth") %>%
+facilities <- read_csv("https://nc-prek.s3.amazonaws.com/data_2019/nc_october_2019.csv.gz") %>%
+  filter(county == "Forsyth") %>%
   # only keep ID column
   select(id, month, name) %>%
   distinct()

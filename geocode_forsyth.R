@@ -6,6 +6,7 @@
 # to retrieve the lat / long
 #
 # Note: Users will need to set up a Google API key!!
+# use `register_google(key = '')` to enter your Google Maps API key into R
 #
 ####################################################################
 
@@ -13,7 +14,7 @@ library(tidyverse)
 library(ggmap)
 
 # import facility data for whole state and most recent month
-facilities <- read_csv('https://raw.githubusercontent.com/forsythfuture/child-care-pdf-scraper/master/data/nc_child_care_addresses.csv') %>%
+facilities <- read_csv('data/nc_child_care_addresses.csv') %>%
   # create a single column with address information;
   # this is needed to feed addresses to the Google API to get lat and long
   mutate(address = str_c(street, ', ', city, ', NC ', zip))
