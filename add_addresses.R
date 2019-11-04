@@ -33,7 +33,7 @@ facilities <- read_csv("https://nc-prek.s3.amazonaws.com/nc_prek_all.csv.gz") %>
          month == 'may',
          county == "Forsyth") %>%
   # only keep ID column
-  select(id, name) %>%
+  select(id, month, name) %>%
   distinct()
 
 # initialize dataframe to contain addresses

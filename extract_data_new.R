@@ -15,10 +15,10 @@ year <- 2019
 # each PDF file is a different month,
 # so we will iterate through months, extracting files
 # month names must be lower case, because they are lower case in file names
-months <- c('april', 'may', 'june', 'july', 'august')
+months <- c('july', 'august', 'september', 'october')
 
 # each monthly file is at a different url, with a consistent style
-# the string below represents the base URL, with month and year added at the end
+# the string below re presents the base URL, with month and year added at the end
 # prior to February 2019, the "/F/" was an "/S/"
 url_base <- "https://ncchildcare.ncdhhs.gov/Portals/0/documents/pdf/S/statistical_detail_report_"
 
@@ -96,7 +96,5 @@ for (month in months) {
   unlink(temp)
   
   rm(single_month)
-  
-  gc()
   
 }

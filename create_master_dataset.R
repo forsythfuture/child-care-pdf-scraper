@@ -53,17 +53,22 @@ write_csv(master, 'data/nc_prek_all.csv')
 
 # zip csv file
 gzip('data/nc_prek_all.csv')
-gzip(file_paths)
+walk(file_paths, gzip)
 
 # send to s3
 put_object(file = 'data/nc_prek_all.csv.gz', acl = "public-read",
            object = "nc_prek_all.csv.gz", bucket = "nc-prek")
 
-put_object(file = str_c(file_paths, ".gz"), 
-           acl = "public-read",
-           object = str_replace(str_c(file_paths, ".gz"), "data/", ""), 
-           bucket = "nc-prek")
+gz_files <- list.files("data", full.names = T)
+
+walk(gz_files, function(x) {
+  put_object(file = x, 
+             acl = "public-read",
+             object = str_replace(x, "data", "data_2019"), 
+             bucket = "nc-prek")
+  }
+)
 
 
 file.remove("data/nc_prek_all.csv.gz")
-file.remove(str_c(file_paths, ".gz"))
+file.remove(gz_files)
