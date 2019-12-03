@@ -24,11 +24,7 @@ facilities <- read_csv('data/nc_child_care_addresses.csv') %>%
 forsyth_addresses <- facilities %>%
   # remove any facilities that we do not have addresses for
   filter(!is.na(address)) %>%
-  # select(id, address) %>%
-  # each facility is in the dataset three times (one for each shift)
-  # only keeping unique values will ensure each facility's addresses is only in dataset once
-  unique() %>%
-  # find lat / long og the address by calling the Google Maps API
+  # find lat / long of the address by calling the Google Maps API
   mutate_geocode(address)
 
 write_csv(forsyth_addresses, 'data/forsyth_addresses_geocode.csv')
